@@ -16,7 +16,8 @@ This sample code provides a demo workflow to censorship and bleep profane and in
 ## How-To install and run the demo (MacOS and Linux)
 
 ### Prerequisites
-The sample code of the demo is built using AWS CDK. Install and configure AWS CDK prerequisites for Python as listed in the Developer Guide (https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-python.html). For convenience, a comprehensive list of AWS CDK prerequisites can be found in the AWS CDK Workshop (https://cdkworkshop.com/15-prerequisites.html).
+The sample code of the demo is built using AWS CDK. Install and configure AWS CDK prerequisites for Python as listed in the Developer Guide (https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-python.html). 
+For convenience, a comprehensive list of AWS CDK prerequisites can be found in the AWS CDK Workshop (https://cdkworkshop.com/15-prerequisites.html).
 
 ### Clone the demo code
 In your local work space, create a new directory for the demo: 
@@ -27,7 +28,7 @@ $ mkdir video-bleeping
 
 Clone the demo code from the AWS Samples Github repository:
 ```bash
-$ git clone <demo-repo-url> ./video-bleeping/
+$ git clone https://github.com/aws-samples/amazon-transcribe-aws-lambda-ugc-censoring-bleeping.git ./video-bleeping/
 $ cd video-bleeping
 ```
 
