@@ -17,6 +17,7 @@ This sample code provides a demo workflow to censorship and bleep profane and in
 
 ### Prerequisites
 The sample code of the demo is built using AWS CDK. Install and configure AWS CDK prerequisites for Python as listed in the Developer Guide (https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-python.html). 
+
 For convenience, a comprehensive list of AWS CDK prerequisites can be found in the AWS CDK Workshop (https://cdkworkshop.com/15-prerequisites.html).
 
 ### Clone the demo code
