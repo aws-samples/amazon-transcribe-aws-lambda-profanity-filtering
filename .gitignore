@@ -1,0 +1,14 @@
+*.swp
+package-lock.json
+__pycache__
+.pytest_cache
+.venv
+*.egg-info
+layer_pydub
+.bandit
+bandit_report.txt
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+cdk.context.json

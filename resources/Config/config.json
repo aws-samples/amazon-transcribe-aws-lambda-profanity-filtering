@@ -1,0 +1,11 @@
+{
+    "Transcribe Language Codes":[
+        "en-US"
+    ],
+    
+    "Transcribe Language Settings":{
+        "en-US": {
+            "VocabularyFilterName": "bad_english_words"
+        }
+    }
+}
