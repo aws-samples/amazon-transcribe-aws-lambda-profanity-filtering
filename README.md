@@ -1,7 +1,7 @@
 
 # Automate censoring and bleeping of user generated content using Amazon Transcribe, AWS Lambda and AWS Elemental MediaConvert
 
-This sample code provides a demo workflow to censorship and bleep profane and inappropriate vocabulary in video files. The output is an HLS video asset where profane words are bleeped in the audio and masked in subtitles. The demo supports auto-detection of the video language as long as the language is supported by Amazon Transcribe service. 
+This sample code provides a demo workflow to censor and bleep profanities and bad words in video files. The output is an HLS video asset where profane words are bleeped in the audio and masked in subtitles. The demo supports auto-detection of the video language as long as the language is supported by Amazon Transcribe service. 
 
 
 ## Architecture Diagram
@@ -10,8 +10,8 @@ This sample code provides a demo workflow to censorship and bleep profane and in
 
 1. The user uploads new video file to Amazon S3 Ingest Bucket. Then AWS Elemental MediaConvert creates an audio proxy file.
 2. Using a Vocabulary Filter, Amazon Transcribe generates a transcript where profanity words are masked.
-3. AWS Lambda processes and bleep all masked words in the audio proxy file.
-4. Finally, AWS Elemental MediaConvert transcodes the source video file from Ingest Bucket along with censored audio and transcript subtitles files from proxy bucket, and outputs an HLS asset ready for playback stored in the Destination Bucket. 
+3. AWS Lambda processes and bleeps all masked words in the audio proxy file.
+4. Finally, AWS Elemental MediaConvert transcodes the source video file from Ingest Bucket along with censored audio and transcript subtitles files from proxy bucket. MediaConvert outputs an HLS asset ready for playback stored in the Destination Bucket. 
 
 ## How-To install and run the demo (MacOS and Linux)
 
