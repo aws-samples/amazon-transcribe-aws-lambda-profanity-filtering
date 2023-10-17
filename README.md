@@ -8,7 +8,8 @@ This sample code provides a demo workflow to censor and bleep profanities and ba
 
 ![Demo Architecture Diagram](architecture.jpg)
 
-1. The user uploads new video file to Amazon S3 Ingest Bucket. Then AWS Elemental MediaConvert creates an audio proxy file.
+### How it works
+1. The user uploads a video file to Amazon S3 Ingest Bucket. Then AWS Elemental MediaConvert creates an audio proxy file.
 2. Using a Vocabulary Filter, Amazon Transcribe generates a transcript where profanity words are masked.
 3. AWS Lambda processes and bleeps all masked words in the audio proxy file.
 4. Finally, AWS Elemental MediaConvert transcodes the source video file from Ingest Bucket along with censored audio and transcript subtitles files from proxy bucket. MediaConvert outputs an HLS asset ready for playback stored in the Destination Bucket. 
