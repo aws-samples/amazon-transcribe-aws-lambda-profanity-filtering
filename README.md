@@ -1,7 +1,7 @@
 
-# Automate censoring and bleeping of user generated content using Amazon Transcribe, AWS Lambda and AWS Elemental MediaConvert
+# Automating Profanity Filtering and Bleeping in Media Content with Amazon Transcribe and AWS Services
 
-This sample code provides a demo workflow to censor and bleep profanities and bad words in video files. The output is an HLS video asset where profane words are bleeped in the audio and masked in subtitles. The demo supports auto-detection of the video language as long as the language is supported by Amazon Transcribe service. 
+This sample code provides a demo workflow to filter and bleep profanities and swear words in video files. The output is an HLS video asset where profanities are bleeped in the audio and masked in produced subtitles. In addition, the demo supports auto-detection of the video's language. 
 
 
 ## Architecture Diagram
@@ -12,7 +12,7 @@ This sample code provides a demo workflow to censor and bleep profanities and ba
 1. The user uploads a video file to Amazon S3 Ingest Bucket. Then AWS Elemental MediaConvert creates an audio proxy file.
 2. Using a Vocabulary Filter, Amazon Transcribe generates a transcript where profanity words are masked.
 3. AWS Lambda processes and bleeps all masked words in the audio proxy file.
-4. Finally, AWS Elemental MediaConvert transcodes the source video file from Ingest Bucket along with censored audio and transcript subtitles files from proxy bucket. MediaConvert outputs an HLS asset ready for playback stored in the Destination Bucket. 
+4. Finally, AWS Elemental MediaConvert transcodes the source video file from Ingest Bucket along with updated audio and transcript subtitles files from proxy bucket. MediaConvert outputs an HLS asset ready for playback stored in the Destination Bucket. 
 
 ## How-To install and run the demo (MacOS and Linux)
 
@@ -49,7 +49,7 @@ $ pip install -r requirements.txt
 ```
 
 ### Install the Pydub module
-In this demo, we manipulate audio using the Pydub Python module (https://pypi.org/project/pydub/). Please note that Pydub is licensed under the MIT License (MIT) as shown in the module page.
+In this demo, we manipulate audio using the Pydub Python module (https://pypi.org/project/pydub/). Please note that Pydub is licensed under the MIT License (MIT) as shown in the module's page.
 ```bash
 $ mkdir -p layer_pydub/python
 $ pip install pydub -t ./layer_pydub/python
@@ -58,18 +58,18 @@ $ pip install pydub -t ./layer_pydub/python
 ### Create Vocabulary Filters for profane words in Amazon Transcribe
 The demo can auto-detect one or more languages. Therefore, you need first to choose the languages you would like to run the workflow with. The complete list of Amazon Transcribe supported languages can be found in the Developer guide (https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html). Note the required language codes from the list, example: `en-US` (United States English) and `fr-CA` (Canadian French).
 
-For each one of selected language codes, create a Vocabulary Filter in Amazon Transcribe for all the words you would like to censor and bleep (https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filter-create.html). Have the names of created filters handy as you will need them in the next step. Example: `bad_english_words` (English) and `bad_french_words` (French). A sample English vocabulary filter words list is provided in the [resources/Samples/](./resources/Samples/) folder. 
+For each one of selected language codes, create a Vocabulary Filter in Amazon Transcribe for all the words you would like to filter out (https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filter-create.html). Have the names of created vocabulary filters handy as you will need them in the next step. Example: `bad_english_words` (English) and `bad_french_words` (French). A sample English vocabulary filter's words list is provided in the [resources/Samples/](./resources/Samples/) folder. 
 
 ---
 ***NOTE***
 
-> The demo code allows you to omit adding vocabulary filters for all or some of the languages in the config file; however, if you omit the vocabulary filter of a language, the demo will not censor nor bleep video files of that language which defeats the purpose. 
+> The demo code allows you to omit adding vocabulary filters for all or some of the languages in the config file; however, if you omit the vocabulary filter of a language, the demo will not filter nor bleep video files of that language which defeats the purpose. 
 ---
 
 ### Update the Config file
 Edit the json config file `./resources/Config/config.json` and update the `Transcribe Language Codes` list. And then for each language, input the name of the vocabulary filter under `Transcribe Language Settings`. Here are few configuration examples (pay attention to the JSON format):
 
-Auto-detect and censor English and French: 
+Auto-detect and filter English and French: 
 ```json
 {
     "Transcribe Language Codes":[
@@ -88,7 +88,7 @@ Auto-detect and censor English and French:
 }
 ```
 
-Auto-detect English and French, censor French language only:
+Auto-detect English and French, filter French language only:
 ```json
 {
     "Transcribe Language Codes":[
@@ -104,7 +104,7 @@ Auto-detect English and French, censor French language only:
 }
 ```
 
-Specify and censor English: 
+Specify and filter English: 
 ```json
 {
     "Transcribe Language Codes":[
