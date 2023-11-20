@@ -30,7 +30,7 @@ $ mkdir video-bleeping
 
 Clone the demo code from the AWS Samples Github repository:
 ```bash
-$ git clone https://github.com/aws-samples/amazon-transcribe-aws-lambda-ugc-censoring-bleeping.git ./video-bleeping/
+$ git clone https://github.com/aws-samples/amazon-transcribe-aws-lambda-profanity-filtering.git ./video-bleeping/
 $ cd video-bleeping
 ```
 
@@ -55,7 +55,7 @@ $ mkdir -p layer_pydub/python
 $ pip install pydub -t ./layer_pydub/python
 ```
 
-### Create Vocabulary Filters for profane words in Amazon Transcribe
+### Create Vocabulary Filters for profanity words in Amazon Transcribe
 The demo can auto-detect one or more languages. Therefore, you need first to choose the languages you would like to run the workflow with. The complete list of Amazon Transcribe supported languages can be found in the Developer guide (https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html). Note the required language codes from the list, example: `en-US` (United States English) and `fr-CA` (Canadian French).
 
 For each one of selected language codes, create a Vocabulary Filter in Amazon Transcribe for all the words you would like to filter out (https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filter-create.html). Have the names of created vocabulary filters handy as you will need them in the next step. Example: `bad_english_words` (English) and `bad_french_words` (French). A sample English vocabulary filter's words list is provided in the [resources/Samples/](./resources/Samples/) folder. 
