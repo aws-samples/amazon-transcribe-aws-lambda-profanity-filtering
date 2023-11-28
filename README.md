@@ -1,7 +1,7 @@
 
 # Automating Profanity Filtering in Media Content with Amazon Transcribe and AWS Services
 
-This sample code provides a demo workflow to filter and bleep profanities and swear words in video files. The output is an HLS video asset where profanities in the audio and produced subtitles are masked. In addition, the demo supports auto-detection of the video's language. 
+This sample code provides a demo workflow to filter profanities and swear words in video files. The output is an HLS video asset where profanities in the audio and produced subtitles are masked. In addition, the demo supports auto-detection of the video's language. 
 
 
 ## Architecture Diagram
